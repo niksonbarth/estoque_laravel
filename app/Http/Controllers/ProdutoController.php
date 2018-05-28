@@ -2,16 +2,11 @@
 
 use Illuminate\Support\Facades\DB;
 
-class ProdutoController extends Controller{
-    public function lista(){
-        $html = '<h1>Lista</h1>';
-        $html .= '<ul>';
-        $produtos = DB::select('select * from produtos');
-        foreach($produtos as $p){
-            $html .= '<li> Nome: '. $p->nome .', Descrição: '. $p->descricao. '</li>';
-        }
+class ProdutoController extends Controller {
 
-        $html .= '</ul>';
-        return $html;
-    }
+        public function lista(){
+            $produtos = DB::select('select * from produtos');
+            //return view('listagem')->with('produtos', $produtos);
+            return view('listagem')->withProdutos($produtos);
+        }
 }
