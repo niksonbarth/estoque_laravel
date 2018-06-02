@@ -17,6 +17,16 @@
                     <span class="glyphicon glyphicon-search"/>
                 </a>
             </td>
+            <td>
+                <a href="{{action('ProdutoController@edita', $p->id)}}">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </a>
+            </td>
+            <td>
+                <a href="{{action('ProdutoController@remove', $p->id)}}">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </a>
+            </td>
         </tr>
         @endforeach
     </table>
@@ -29,7 +39,7 @@
 
 @if(old('nome'))
     <div class="alert alert-success">
-        <strong>Sucesso!</strong> O produto {{ old(nome) }} foi adicionado.
+        <strong>Sucesso!</strong> O produto {{ old('nome') }} foi adicionado.
     </div>
 @endif
 @stop
